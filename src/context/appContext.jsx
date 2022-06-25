@@ -2,9 +2,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import {
   addDoc,
   collection,
+  deleteDoc,
+  doc,
   getDocs,
   orderBy,
   query,
+  updateDoc,
 } from "firebase/firestore";
 import React, { createContext, useReducer } from "react";
 import { auth, firestore } from "../firebase/config";
@@ -75,6 +78,17 @@ export const AppProvider = ({ children }) => {
     const ref = collection(firestore, "todos");
     await addDoc(ref, todo);
   };
+  const deleteTodo = async (id) => {
+    const ref = doc(firestore, "todos", id);
+    await deleteDoc(ref);
+    await getTodos();
+  };
+
+  const updateTodo = async (id, todo) => {
+    const ref = doc(firestore, "todos", id);
+    await updateDoc(ref, todo);
+  };
+
   return (
     <appContext.Provider
       value={{
@@ -83,6 +97,8 @@ export const AppProvider = ({ children }) => {
         getUser,
         getTodos,
         createTodo,
+        deleteTodo,
+        updateTodo,
       }}>
       {children}
     </appContext.Provider>

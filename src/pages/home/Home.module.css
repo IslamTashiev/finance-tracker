@@ -75,6 +75,7 @@
   color: #777;
   font-weight: bold;
   font-size: 1.6em;
+  margin-bottom: 10px;
 }
 .transactions button {
   position: absolute;
@@ -88,4 +89,43 @@
   line-height: 0;
   font-size: 0.9em;
   cursor: pointer;
+}
+.control {
+  position: relative;
+}
+.control button:first-child {
+  top: 24px;
+  right: -26px;
+  /* bottom: ; */
+}
+.inputs {
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  gap: 30px;
+  width: 100%;
+}
+.control button:last-child {
+  top: 24px;
+  right: 46px;
+  /* bottom: ; */
+}
+.transactions .input {
+  width: 100%;
+  height: 42px;
+  outline: none;
+  border: none;
+  color: #777;
+  font-size: 1.4em;
+  border-bottom: #777 2px solid;
+  margin-bottom: 10px;
+}
+.transactions .input:last-child {
+  color: #777;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+.none {
+  display: none;
 }
